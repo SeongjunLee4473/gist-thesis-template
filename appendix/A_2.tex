@@ -1,0 +1,19 @@
+%----------------------------------------------------------
+% [부록 예시 2] \captionof: figure 환경 없이(떠다니지 않고) 그 자리에 그림 배치
+% 부록에 그림을 한 쪽씩 순서대로 넣을 때 유용합니다.
+%----------------------------------------------------------
+\captionsetup{justification=centering, hypcap=false}
+
+\captionof{figure}{Supplementary figure 1 (example of \textbackslash\texttt{captionof}).}
+\label{fig:supp_1}
+\includegraphics[width=\linewidth]{example-image-a}
+\\[1ex]
+\textmd{\small Description of the supplementary figure can be written here.}
+
+\newpage
+
+\captionof{figure}{Supplementary figure 2.}
+\label{fig:supp_2}
+\includegraphics[width=\linewidth]{example-image-b}
+\\[1ex]
+\textmd{\small Description of the supplementary figure can be written here.}

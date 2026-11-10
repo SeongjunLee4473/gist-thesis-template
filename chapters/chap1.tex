@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter 1. Introduction
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction} \label{chapter1}
+
+%==============================%
+% 1.1 Research background
+%==============================%
+\section{Research background} \label{chap1:sec1}
+
+Describe the broad context of your research here. Every chapter, section, figure, table, and equation should have a \verb|\label{...}| so that it can be referenced automatically.
+
+To cite a reference, use the \verb|\cite| command with an entry key from the bibliography file (\texttt{references.bib}). A single citation looks like this \cite{RN35}, and multiple citations are sorted and compressed automatically \cite{haralick1973a, akiba2019optuna, zhou_unet_2018}. Online sources such as databases can also be cited \cite{nier_weis}.
+
+%==============================%
+% 1.2 Problem statement
+%==============================%
+\section{Problem statement} \label{chap1:sec2}
+
+State the limitations of existing approaches and the specific gap that this thesis addresses. Commonly used abbreviation macros are available, \eg \verb|\eg|, \verb|\ie|, and \verb|\etal| (\eg Haralick \etal \cite{haralick1973a}).
+
+%==============================%
+% 1.3 Research objectives
+%==============================%
+\section{Research objectives} \label{chap1:sec3}
+
+List the objectives of the thesis. Use \texttt{itemize} or \texttt{enumerate} for lists:
+\begin{enumerate}[label=(\arabic*)]
+    \item The first objective of this thesis.
+    \item The second objective of this thesis.
+\end{enumerate}
+
+%==============================%
+% 1.4 Thesis organization
+%==============================%
+\section{Thesis organization} \label{chap1:sec4}
+
+Cross-references are written with \verb|\Cref{label}|, which inserts the type and number automatically. The rest of this thesis is organized as follows. \Cref{chapter2} reviews related work. \Cref{chapter3} describes the data and methods. \Cref{chapter4} presents and discusses the results. Finally, \Cref{chapter5} concludes the thesis.

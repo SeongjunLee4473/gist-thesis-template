@@ -1,0 +1,30 @@
+%----------------------------------------------------------
+% [표 예시 2] tabular + booktabs + multirow
+%  - \multirow{2}{*}{...} : 세로 2칸 병합
+%  - \multicolumn{2}{c}{...} : 가로 2칸 병합
+%  - \cmidrule(lr){3-4} : 3~4열에만 가로선
+%----------------------------------------------------------
+\begin{table}[!htbp]
+\centering
+\small
+\caption{Performance comparison (example of a \texttt{booktabs} table).}
+\label{tab:results}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{cc cc cc}
+\toprule
+\multirow{2}{*}{\textbf{Model}} & \multirow{2}{*}{\textbf{Input}} &
+\multicolumn{2}{c}{\textbf{Site A}} &
+\multicolumn{2}{c}{\textbf{Site B}} \\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6}
+& & Metric 1 & Metric 2 & Metric 1 & Metric 2 \\
+\midrule
+\multirow{2}{*}{Model 1}
+& Baseline      & 0.00 & 0.00 & 0.00 & 0.00 \\
+& \textbf{Proposed} & 0.00 & 0.00 & \textbf{0.00} & \textbf{0.00} \\
+\addlinespace
+\multirow{2}{*}{Model 2}
+& Baseline      & 0.00 & 0.00 & 0.00 & 0.00 \\
+& \textbf{Proposed} & 0.00 & 0.00 & \textbf{0.00} & \textbf{0.00} \\
+\bottomrule
+\end{tabular}
+\end{table}

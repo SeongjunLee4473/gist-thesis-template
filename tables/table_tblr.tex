@@ -1,0 +1,27 @@
+%----------------------------------------------------------
+% [표 예시 1] tabularray(tblr): 열 너비 자동 조정, 세로 병합
+%  - colspec: Q = 내용 폭, X = 남은 폭을 채움 / [c,m] = 가운데·세로 중앙
+%  - cell{2}{3} = {r=2}{} : 2행 3열 셀을 아래로 2칸 병합(병합되는 칸은 비워 둠)
+%----------------------------------------------------------
+\begin{table}[!htbp]
+\centering
+\small
+\caption{Summary of datasets (example of a \texttt{tblr} table).}
+\label{tab:dataset}
+\begin{tblr}{
+  width = \linewidth,
+  colspec = { Q[c,m] X[l,m] Q[c,m] Q[c,m] },
+  row{1} = {font=\bfseries, halign=c},
+  cell{2}{3} = {r=2}{},
+}
+\toprule
+Dataset   & Description                                   & Type          & Resolution \\
+\midrule
+Dataset A & Description of dataset A                      & {Satellite \\ imagery} & 10 m \\
+\addlinespace
+Dataset B & Description of dataset B                      &               & 30 m \\
+\addlinespace
+Dataset C & Description of dataset C (e.g., in-situ data) & Point data    & -- \\
+\bottomrule
+\end{tblr}
+\end{table}

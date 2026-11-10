@@ -1,0 +1,30 @@
+%----------------------------------------------------------
+% [부록 예시 1] longtblr: 여러 쪽에 걸쳐 이어지는 긴 표
+% 표 아래에 작은 글씨로 설명을 덧붙이는 방법도 함께 보여 줍니다.
+%----------------------------------------------------------
+\begin{longtblr}[
+    caption = {Configuration of hyperparameters (example of a \texttt{longtblr} table).},
+    label = {tab:hyperparameters},
+]{
+    width = \linewidth,
+    colspec = { Q[c,m] X[l,m] Q[c,m] Q[c,m] },
+    row{1} = {font=\bfseries, halign=c},
+    rowhead = 1,
+}
+\toprule
+Model   & Hyperparameter & Search space & Selected value \\
+\midrule
+Model 1 & Learning rate  & $10^{-5}$ to $10^{-2}$ & $10^{-3}$ \\
+        & Batch size     & 16, 32, 64   & 32 \\
+\addlinespace
+Model 2 & Number of trees & 100 to 1000 & 500 \\
+        & Maximum depth   & 3 to 10     & 6 \\
+\bottomrule
+\end{longtblr}
+
+{
+    \small
+    \setlength{\parindent}{0pt}
+    \vspace{1ex}
+    \textbf{Note:} Additional explanations for \Cref{tab:hyperparameters} can be written here in a smaller font.
+}

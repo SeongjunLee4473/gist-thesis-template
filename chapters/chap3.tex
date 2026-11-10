@@ -1,0 +1,94 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter 3. Data and Methods
+% 예시: 그림(부분 그림 라벨), 가로 페이지 그림, 표(tblr), 수식
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Data and Methods} \label{chapter3}
+
+%==============================%
+% 3.1 Study area
+%==============================%
+\section{Study area} \label{chap3:sec1}
+
+% ------------------------------------------------------------------
+% [예시 1] 여러 패널이 하나의 이미지 파일에 들어 있는 그림
+% 패널 (a), (b)를 개별적으로 참조하려면 \phantomsubcaption으로 라벨만 만들어 둡니다.
+% 그림 파일은 figures/ 폴더에 넣고 \includegraphics{figures/파일명.pdf}로 불러오세요.
+% 아래 example-image-a는 TeX에 내장된 예시 이미지이므로, 실제 그림으로 바꾸면 됩니다.
+% \caption[짧은 제목]{긴 캡션}: 대괄호 안의 짧은 제목만 그림 목차(List of Figures)에 들어갑니다.
+% ------------------------------------------------------------------
+\begin{figure}[!htbp]
+    \centering
+    {
+      \phantomsubcaption\label{fig:study_area_a}
+      \phantomsubcaption\label{fig:study_area_b}
+    }
+    \includegraphics[width=0.8\textwidth]{example-image-a}
+    \caption[Overview of the study area.]{Overview of the study area. (a) Location of the study area and (b) land cover map. Only the short title given in the square brackets of the caption command appears in the List of Figures.}
+    \label{fig:study_area}
+\end{figure}
+
+Describe your study area here. \Cref{fig:study_area} shows the study area, and individual panels can be referenced as \Cref{fig:study_area_a} or \Cref{fig:study_area_a,fig:study_area_b}.
+
+%==============================%
+% 3.2 Datasets
+%==============================%
+\section{Datasets} \label{chap3:sec2}
+
+Describe the datasets. \Cref{tab:dataset} summarizes the datasets used in this study.
+
+\input{tables/table_tblr}
+
+%==============================%
+% 3.3 Methodology
+%==============================%
+\section{Methodology} \label{chap3:sec3}
+
+\subsection{Overall workflow} \label{chap3:sec3:subsec1}
+
+The overall workflow is shown in \Cref{fig:workflow}. A wide flowchart can be placed on a rotated page with \texttt{sidewaysfigure}.
+
+% ------------------------------------------------------------------
+% [예시 2] 가로로 회전한 페이지 전체를 차지하는 그림 (rotating 패키지)
+% ------------------------------------------------------------------
+\begin{sidewaysfigure}
+    \centering
+    \includegraphics[width=0.8\textheight]{example-image}
+    \caption{Flowchart of the methodology (example of a rotated, full-page figure).}
+    \label{fig:workflow}
+\end{sidewaysfigure}
+
+\subsection{Model description} \label{chap3:sec3:subsec2}
+
+\subsubsection{Equations} \label{chap3:sec3:subsec2:subsubsec1}
+
+% ------------------------------------------------------------------
+% [예시 3] 번호가 붙는 수식. 본문에서는 \Cref{eq:...}로 참조합니다.
+% ------------------------------------------------------------------
+Numbered equations are written with the \texttt{equation} environment and referenced as \Cref{eq:rmse}:
+
+\begin{equation}
+\label{eq:rmse}
+RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} \left(y_i - \hat{y}_i\right)^2}
+\end{equation}
+
+where $n$ is the number of samples, $y_i$ is the observed value, and $\hat{y}_i$ is the predicted value. Piecewise definitions use \texttt{cases}, as in \Cref{eq:piecewise}:
+
+\begin{equation}
+\label{eq:piecewise}
+f(x) =
+\begin{cases}
+    1, & \text{if } x \geq \tau \\
+    0, & \text{otherwise}
+\end{cases}
+\end{equation}
+
+Multi-line equations aligned at the equal sign use \texttt{align} (\Cref{eq:precision,eq:recall}):
+
+\begin{align}
+Precision &= \frac{TP}{TP+FP} \label{eq:precision} \\
+Recall    &= \frac{TP}{TP+FN} \label{eq:recall}
+\end{align}
+
+\subsubsection{Evaluation metrics} \label{chap3:sec3:subsec2:subsubsec2}
+
+Describe the evaluation metrics and validation strategy here. Detailed settings can be moved to the appendix (see \Cref{tab:hyperparameters}).

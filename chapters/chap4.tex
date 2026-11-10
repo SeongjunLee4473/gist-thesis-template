@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter 4. Results and Discussion
+% 예시: 표(booktabs + multirow), subfigure 환경을 이용한 부분 그림
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Results and Discussion} \label{chapter4}
+
+%==============================%
+% 4.1 Results
+%==============================%
+\section{Results} \label{chap4:sec1}
+
+\subsection{Quantitative results} \label{chap4:sec1:subsec1}
+
+\Cref{tab:results} compares the performance of the models. Tables with grouped rows and columns can be built with \texttt{booktabs}, \texttt{multirow}, and \textbackslash\texttt{cmidrule}.
+
+\input{tables/table_booktabs}
+
+\subsection{Qualitative results} \label{chap4:sec1:subsec2}
+
+% ------------------------------------------------------------------
+% [예시 4] 그림 파일이 패널별로 따로 있을 때: subfigure 환경
+% 각 패널 아래에 (a), (b) 캡션이 자동으로 붙습니다.
+% ------------------------------------------------------------------
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{example-image-b}
+        \caption{Baseline}
+        \label{fig:map_baseline}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{example-image-c}
+        \caption{Proposed}
+        \label{fig:map_proposed}
+    \end{subfigure}
+    \caption{Visual comparison of results: (a) baseline and (b) proposed method.}
+    \label{fig:maps}
+\end{figure}
+
+\Cref{fig:maps} compares the results visually. The proposed method (\Cref{fig:map_proposed}) shows ... compared with the baseline (\Cref{fig:map_baseline}).
+
+%==============================%
+% 4.2 Discussion
+%==============================%
+\section{Discussion} \label{chap4:sec2}
+
+Interpret the results, compare them with previous studies, and discuss their implications.
+
+\subsection{Limitations and future work} \label{chap4:sec2:subsec1}
+
+Describe the limitations of this study and directions for future research.
