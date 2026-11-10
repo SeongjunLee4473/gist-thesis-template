@@ -92,23 +92,29 @@
 %-----------------------------------------------------------------------
 % Department code [EDIT]
 % 형식: \code{{학위/}{학과코드}}   학위: BS/ (학사), MS/ (석사), PhD/ (박사)
-% 학과 코드별로 표지·초록에 찍히는 학과명 (gist.cls에 정의된 그대로)
-% IC - School of Information and Communications (정보통신공학부)
-% IM - School of Information and Communications (정보기전공학부)
-% EC - School of Electrical Engineering and Computer Science (전기전자컴퓨터공학부)
-% MS - School of Materials Science and Engineering (신소재공학부)
-% ME - School of Mechanical and Robotics Engineering (기계로봇공학부)
-% EN - Department of Environment and Energy Engineering (환경에너지공학과)
-% LS - School of Life Sciences (생명과학부)
-% PH - Department of Physics and Photon Science (물리·광과학과)
-% CH - Department of Chemistry (화학과)
-% NA - Department of Nanobio Materials and Electronics (나노바이오재료전자공학과)
-% MD - Department of Biomedical Science and Engineering (의생명공학과)
-% ET - School of Integrated Technology (에너지융합학제전공)
-% CT - School of Integrated Technology (문화기술융합학제전공)
-% RT - School of Integrated Technology (지능로봇프로그램전공)
-% 일부 학과명은 현행 명칭과 다를 수 있으니, 컴파일 후 표지의 학과명을 꼭 확인하세요.
-% 학과명이 바뀌었거나 목록에 없으면 gist.cls의 \ifx\@dept\EN ... \fi 블록을 수정하세요.
+% 학과 코드별로 표지·제출서·초록 머리말에 단과대학명과 학과명이 자동으로 들어갑니다.
+% (현행 조직 기준, www.gist.ac.kr 대학·학과 메뉴로 2026-11-10 확인)
+%  [College of Artificial Intelligence / AI대학]
+%   EC - Department of Electrical Engineering and Computer Science (전기전자컴퓨터공학과)
+%   AI - Department of AI (AI학과)
+%   AX - Department of AX (AX학과)
+%   SE - Department of Semiconductor Engineering (반도체공학과)
+%  [College of Natural Sciences / 자연과학대학]
+%   PH - Department of Physics and Photon Science (물리·광과학과)
+%   CH - Department of Chemistry (화학과)
+%   MA - Department of Mathematical Sciences (수리과학과)
+%  [College of Engineering / 공과대학]
+%   MS - Department of Materials Science and Engineering (신소재공학과)
+%   ME - Department of Mechanical and Robotics Engineering (기계로봇공학과)
+%   EN - Department of Environment and Energy Engineering (환경·에너지공학과)
+%  [College of Life Sciences and Medical Engineering / 생명·의과학융합대학]
+%   LS - Department of Life Sciences (생명과학과)
+%   MD - Department of Biomedical Science and Engineering (의생명공학과)
+%   NP - Department of Integrative Neuroscience & Physiology (융합신경생리학과)
+% 예전 조직 코드(IC, IM, NA, ET, CT, RT)는 기존 논문 호환용으로만 gist.cls에 남아 있습니다.
+% 대학원(AI정책전략대학원, 기술경영전문대학원 등)이나 새 학과는
+% gist.cls의 학과 블록 하나를 복사해 코드·학과명·단과대학명을 바꾸면 됩니다.
+% 컴파일 후 표지의 단과대학명과 학과명이 맞는지 꼭 확인하세요.
 %-----------------------------------------------------------------------
 \code{{MS/}{EN}}
 

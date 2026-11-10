@@ -24,6 +24,8 @@
 % .11  11/10/26        S.J. Lee    Abstract starts at page i (\clearpage),
 %                                  hyperlink anchors (\phantomsection);
 %                                  References entry in TOC is set in thesis.tex
+%                                  College printed per department (\@ecollege);
+%                                  department codes updated to the current organization
 
 %
 % Redefine plain pagestyle.
@@ -124,6 +126,11 @@
 \def\ET{ET}
 \def\CT{CT}
 \def\RT{RT}
+\def\AI{AI}
+\def\AX{AX}
+\def\SE{SE}
+\def\MA{MA}
+\def\NP{NP}
 
 \pagestyle{plain}
 \def\insert@hss#1#2{#1#2\hss}
@@ -146,104 +153,187 @@
   \fi
 \expandafter\split@code\@code\eop
 \expandafter\split@kname\@kname\eop
-\ifx\@dept\IC \def\@edept{Information and Communications}
-            \def\@kdept{정보통신공}
-            \def\@kdeptn{정 보 통 신 공}
-            \def\@em{Science}
-            \def\@edptype{School of}
-            \def\@kdptype{학부}
-            \def\@kdptypesp{학 부}\fi
-\ifx\@dept\IM \def\@edept{Information and Communications}
-            \def\@kdept{정보기전공}
-            \def\@kdeptn{정 보 기 전 공}
-            \def\@em{Science}
-            \def\@edptype{School of}
-            \def\@kdptype{학부}
-            \def\@kdptypesp{학 부}\fi
+% Department definitions (current organization, checked against www.gist.ac.kr, 2026-11-10)
+% \@ecollege / \@kcollege: college printed on the cover, submission page and abstract header.
+% Leave \@ecollege empty for a unit that does not belong to a college (the line is then omitted).
+\def\@ecollege{}\def\@kcollege{}
+%--- College of Artificial Intelligence (AI대학)
 \ifx\@dept\EC \def\@edept{Electrical Engineering and Computer Science}
             \def\@kdept{전기전자컴퓨터공}
             \def\@kdeptn{전 기 전 자 컴 퓨 터 공}
             \def\@em{Science}
-            \def\@edptype{School of}
-            \def\@kdptype{학부}
-            \def\@kdptypesp{학 부}\fi
-\ifx\@dept\MS \def\@edept{Materials Science and Engineering}
-            \def\@kdept{신소재공}
-            \def\@kdeptn{신 소 재 공}
-            \def\@em{Science}
-            \def\@edptype{School of}
-            \def\@kdptype{학부}
-            \def\@kdptypesp{학 부}\fi
-\ifx\@dept\ME \def\@edept{Mechanical and Robotics Engineering}
-            \def\@kdept{기계로봇공}
-            \def\@kdeptn{기 계 로 봇 공}
-            \def\@em{Science}
-            \def\@edptype{School of}
-            \def\@kdptype{학부}
-            \def\@kdptypesp{학 부}\fi
-\ifx\@dept\EN \def\@edept{Environment and Energy Engineering}
-            \def\@kdept{환경에너지공}
-            \def\@kdeptn{환 경 에 너 지 공}
+            \def\@edptype{Department of}
+            \def\@kdptype{학과}
+            \def\@kdptypesp{학 과}
+            \def\@ecollege{College of Artificial Intelligence}
+            \def\@kcollege{AI대학}\fi
+\ifx\@dept\AI \def\@edept{AI}
+            \def\@kdept{AI}
+            \def\@kdeptn{A I}
             \def\@em{Science}
             \def\@edptype{Department of}
             \def\@kdptype{학과}
-            \def\@kdptypesp{학 과}\fi
-\ifx\@dept\LS \def\@edept{Life Sciences}
-            \def\@kdept{생명과}
-            \def\@kdeptn{생 명 과}
+            \def\@kdptypesp{학 과}
+            \def\@ecollege{College of Artificial Intelligence}
+            \def\@kcollege{AI대학}\fi
+\ifx\@dept\AX \def\@edept{AX}
+            \def\@kdept{AX}
+            \def\@kdeptn{A X}
             \def\@em{Science}
-            \def\@edptype{School of}
-            \def\@kdptype{학부}
-            \def\@kdptypesp{학 부}\fi
+            \def\@edptype{Department of}
+            \def\@kdptype{학과}
+            \def\@kdptypesp{학 과}
+            \def\@ecollege{College of Artificial Intelligence}
+            \def\@kcollege{AI대학}\fi
+\ifx\@dept\SE \def\@edept{Semiconductor Engineering}
+            \def\@kdept{반도체공}
+            \def\@kdeptn{반 도 체 공}
+            \def\@em{Science}
+            \def\@edptype{Department of}
+            \def\@kdptype{학과}
+            \def\@kdptypesp{학 과}
+            \def\@ecollege{College of Artificial Intelligence}
+            \def\@kcollege{AI대학}\fi
+%--- College of Natural Sciences (자연과학대학)
 \ifx\@dept\PH \def\@edept{Physics and Photon Science}
             \def\@kdept{물리$\cdot$광과}
             \def\@kdeptn{물 리 $\cdot$ 광 과}
             \def\@em{Science}
             \def\@edptype{Department of}
             \def\@kdptype{학과}
-            \def\@kdptypesp{학 과}\fi
+            \def\@kdptypesp{학 과}
+            \def\@ecollege{College of Natural Sciences}
+            \def\@kcollege{자연과학대학}\fi
 \ifx\@dept\CH \def\@edept{Chemistry}
             \def\@kdept{화학}
             \def\@kdeptn{화학}
             \def\@em{Science}
             \def\@edptype{Department of}
             \def\@kdptype{과}
-            \def\@kdptypesp{과}\fi
-\ifx\@dept\NA \def\@edept{Nanobio Materials and Electronics}
-            \def\@kdept{나노바이오재료전자공}
-            \def\@kdeptn{나 노 바 이 오 재 료 전 자 공}
+            \def\@kdptypesp{과}
+            \def\@ecollege{College of Natural Sciences}
+            \def\@kcollege{자연과학대학}\fi
+\ifx\@dept\MA \def\@edept{Mathematical Sciences}
+            \def\@kdept{수리과}
+            \def\@kdeptn{수 리 과}
             \def\@em{Science}
             \def\@edptype{Department of}
             \def\@kdptype{학과}
-            \def\@kdptypesp{학 과}\fi
+            \def\@kdptypesp{학 과}
+            \def\@ecollege{College of Natural Sciences}
+            \def\@kcollege{자연과학대학}\fi
+%--- College of Engineering (공과대학)
+\ifx\@dept\MS \def\@edept{Materials Science and Engineering}
+            \def\@kdept{신소재공}
+            \def\@kdeptn{신 소 재 공}
+            \def\@em{Science}
+            \def\@edptype{Department of}
+            \def\@kdptype{학과}
+            \def\@kdptypesp{학 과}
+            \def\@ecollege{College of Engineering}
+            \def\@kcollege{공과대학}\fi
+\ifx\@dept\ME \def\@edept{Mechanical and Robotics Engineering}
+            \def\@kdept{기계로봇공}
+            \def\@kdeptn{기 계 로 봇 공}
+            \def\@em{Science}
+            \def\@edptype{Department of}
+            \def\@kdptype{학과}
+            \def\@kdptypesp{학 과}
+            \def\@ecollege{College of Engineering}
+            \def\@kcollege{공과대학}\fi
+\ifx\@dept\EN \def\@edept{Environment and Energy Engineering}
+            \def\@kdept{환경$\cdot$에너지공}
+            \def\@kdeptn{환 경 $\cdot$ 에 너 지 공}
+            \def\@em{Science}
+            \def\@edptype{Department of}
+            \def\@kdptype{학과}
+            \def\@kdptypesp{학 과}
+            \def\@ecollege{College of Engineering}
+            \def\@kcollege{공과대학}\fi
+%--- College of Life Sciences and Medical Engineering (생명·의과학융합대학)
+\ifx\@dept\LS \def\@edept{Life Sciences}
+            \def\@kdept{생명과}
+            \def\@kdeptn{생 명 과}
+            \def\@em{Science}
+            \def\@edptype{Department of}
+            \def\@kdptype{학과}
+            \def\@kdptypesp{학 과}
+            \def\@ecollege{College of Life Sciences and Medical Engineering}
+            \def\@kcollege{생명$\cdot$의과학융합대학}\fi
 \ifx\@dept\MD \def\@edept{Biomedical Science and Engineering}
             \def\@kdept{의생명공}
             \def\@kdeptn{의 생 명 공}
             \def\@em{Science}
             \def\@edptype{Department of}
             \def\@kdptype{학과}
-            \def\@kdptypesp{학 과}\fi
+            \def\@kdptypesp{학 과}
+            \def\@ecollege{College of Life Sciences and Medical Engineering}
+            \def\@kcollege{생명$\cdot$의과학융합대학}\fi
+\ifx\@dept\NP \def\@edept{Integrative Neuroscience \& Physiology}
+            \def\@kdept{융합신경생리}
+            \def\@kdeptn{융 합 신 경 생 리}
+            \def\@em{Science}
+            \def\@edptype{Department of}
+            \def\@kdptype{학과}
+            \def\@kdptypesp{학 과}
+            \def\@ecollege{College of Life Sciences and Medical Engineering}
+            \def\@kcollege{생명$\cdot$의과학융합대학}\fi
+%--- Legacy codes (units no longer in the current organization).
+%    Kept only so that older theses still compile with their original wording.
+\ifx\@dept\IC \def\@edept{Information and Communications}
+            \def\@kdept{정보통신공}
+            \def\@kdeptn{정 보 통 신 공}
+            \def\@em{Science}
+            \def\@edptype{School of}
+            \def\@kdptype{학부}
+            \def\@kdptypesp{학 부}
+            \def\@ecollege{College of Engineering}
+            \def\@kcollege{공과대학}\fi
+\ifx\@dept\IM \def\@edept{Information and Communications}
+            \def\@kdept{정보기전공}
+            \def\@kdeptn{정 보 기 전 공}
+            \def\@em{Science}
+            \def\@edptype{School of}
+            \def\@kdptype{학부}
+            \def\@kdptypesp{학 부}
+            \def\@ecollege{College of Engineering}
+            \def\@kcollege{공과대학}\fi
+\ifx\@dept\NA \def\@edept{Nanobio Materials and Electronics}
+            \def\@kdept{나노바이오재료전자공}
+            \def\@kdeptn{나 노 바 이 오 재 료 전 자 공}
+            \def\@em{Science}
+            \def\@edptype{Department of}
+            \def\@kdptype{학과}
+            \def\@kdptypesp{학 과}
+            \def\@ecollege{College of Engineering}
+            \def\@kcollege{공과대학}\fi
 \ifx\@dept\ET \def\@edept{Integrated Technology}
             \def\@kdept{에너지융합학제}
             \def\@kdeptn{에 너 지 융 합 학 제}
             \def\@em{Science}
             \def\@edptype{School of}
             \def\@kdptype{전공}
-            \def\@kdptypesp{전 공}\fi
+            \def\@kdptypesp{전 공}
+            \def\@ecollege{College of Engineering}
+            \def\@kcollege{공과대학}\fi
 \ifx\@dept\CT \def\@edept{Integrated Technology}
             \def\@kdept{문화기술융합학제}
             \def\@kdeptn{문 화 기 술 융 합 학 제}
             \def\@em{Science}
             \def\@edptype{School of}
             \def\@kdptype{전공}
-            \def\@kdptypesp{전 공}\fi
+            \def\@kdptypesp{전 공}
+            \def\@ecollege{College of Engineering}
+            \def\@kcollege{공과대학}\fi
 \ifx\@dept\RT \def\@edept{Integrated Technology}
             \def\@kdept{지능로봇프로그램}
             \def\@kdeptn{지 능 로 봇 프 로 그 램}
             \def\@em{Science}
             \def\@edptype{School of}
             \def\@kdptype{전공}
-            \def\@kdptypesp{전 공}\fi
+            \def\@kdptypesp{전 공}
+            \def\@ecollege{College of Engineering}
+            \def\@kcollege{공과대학}\fi
 
 
 \ifx \D@char\@md \def\@kmd{박사}\def\@emd{Doctor of Philosophy}\fi
@@ -278,7 +368,7 @@
       \fontsize{14}{1pt}\selectfont \@ename{} \\
       \vspace*{10mm}
       \fontsize{14}{14pt}\selectfont
-      College of Engineering \\
+      \ifx\@ecollege\@empty\else\@ecollege \\\fi
       \@edptype{ }\@edept \\
       \fontsize{16}{1pt}\selectfont
       \vspace*{15mm}
@@ -325,7 +415,7 @@
     Advisor: \@advisor\\
     \ifx\@coadvisor\@@@@undefined@@@@ \else Co-Advisor: \@coadvisor\\ \fi
     \vspace{2mm} by\\\vspace{2mm}\@ename\\[6mm]
-    College of Engineering \\
+    \ifx\@ecollege\@empty\else\@ecollege \\\fi
     \@edptype{ }\@edept{ } \\%%%\mbox{(\@emajor{ }program)}\\
     Gwangju Institute of Science and Technology
   \end{center}
@@ -457,7 +547,7 @@
   \hbox{\parbox[t]{2cm}{\strut\@code\\\@studentid}\advance\linewidth by-2cm
   \hspace{1mm}
   \parbox[t]{132mm}{\@ename~(\@kname). {\maketitlebreaknotwork \@etitle~(\@ktitle).}
-  College of Engineering, \@edptype{ }\@edept.
+  \ifx\@ecollege\@empty\else\@ecollege, \fi\@edptype{ }\@edept.
   \@coveryear. \@npages{p}. Advisor: Prof. \@advisor \ifx\@coadvisor\@@@@undefined@@@@
   \else, \@coadvisor\fi.}}}
   \vskip4cm
@@ -505,7 +595,7 @@
   \hbox{\parbox[t]{2cm}{\strut\@code\\\@studentid}\advance\linewidth by-2cm
   \hspace{1mm}
   \parbox[t]{132mm}{\@kname. {\maketitlebreaknotwork \@ktitle.}
-  \@kdept\@kdptype.
+  \ifx\@kcollege\@empty\else\@kcollege{ }\fi\@kdept\@kdptype.
   \@coveryear. \@npages{p}. 지도교수: \@kadvisor \ifx\@kcoadvisor\@@@@undefined@@@@
   \else, \@kcoadvisor\fi.}}}
   \vskip4cm

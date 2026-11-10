@@ -16,7 +16,14 @@
 
 ![템플릿으로 생성한 표지, 인준지, 초록, 목차](docs/images/preview_front.png)
 
-## 이번 버전에서 바뀐 점 (2026년 11월 10일)
+## 바뀐 점
+
+**v1.1.0** (2026년 11월 10일)
+
+- 모든 학과에 "College of Engineering"으로 고정 출력되던 단과대학명을 학과별로 자동 출력되게 수정함.
+- 학과 코드를 현행 조직(4개 단과대학, 13개 학과)에 맞게 정비하고, 반도체공학과·AI학과·AX학과·수리과학과·융합신경생리학과 코드를 추가함.
+
+**v1.0.0** (2026년 11월 10일)
 
 - 참고문헌(References)이 목차에 나오지 않던 문제 수정함.
 - 초록 첫 쪽 번호가 "ii"로 찍히던 문제 수정함 (목차와 동일하게 "i"부터 시작).
@@ -79,28 +86,28 @@ pdflatex thesis
 | `\refereeA`~`C` | 심사위원 영문 이름. 석사 3인(A~C), 박사 5인(A~E). A가 Committee Chair | `Prof. Committee Chair` |
 
 <details>
-<summary><b>학위/학과 코드</b> (<code>gist.cls</code>에 정의된 학과명이 그대로 출력됨)</summary>
+<summary><b>학위/학과 코드</b> (현행 조직, <a href="https://www.gist.ac.kr/kr/html/sub03/03010101.html">GIST 홈페이지</a> 2026년 11월 10일 확인)</summary>
 
-형식은 `{{학위/}{학과코드}}`임. 학위는 `BS/`(학사), `MS/`(석사), `PhD/`(박사) 중 하나.
+형식은 `{{학위/}{학과코드}}`임. 학위는 `BS/`(학사), `MS/`(석사), `PhD/`(박사) 중 하나. 아래 단과대학명과 학과명이 표지·제출서·초록 머리말에 자동 출력됨.
 
-| 코드 | 표지·초록에 출력되는 영문명 | 국문명 |
-|:-:|:--|:--|
-| `IC` | School of Information and Communications | 정보통신공학부 |
-| `IM` | School of Information and Communications | 정보기전공학부 |
-| `EC` | School of Electrical Engineering and Computer Science | 전기전자컴퓨터공학부 |
-| `MS` | School of Materials Science and Engineering | 신소재공학부 |
-| `ME` | School of Mechanical and Robotics Engineering | 기계로봇공학부 |
-| `EN` | Department of Environment and Energy Engineering | 환경에너지공학과 |
-| `LS` | School of Life Sciences | 생명과학부 |
-| `PH` | Department of Physics and Photon Science | 물리·광과학과 |
-| `CH` | Department of Chemistry | 화학과 |
-| `NA` | Department of Nanobio Materials and Electronics | 나노바이오재료전자공학과 |
-| `MD` | Department of Biomedical Science and Engineering | 의생명공학과 |
-| `ET` | School of Integrated Technology | 에너지융합학제전공 |
-| `CT` | School of Integrated Technology | 문화기술융합학제전공 |
-| `RT` | School of Integrated Technology | 지능로봇프로그램전공 |
+| 코드 | 단과대학 | 학과 (영문 출력) | 국문명 |
+|:-:|:--|:--|:--|
+| `EC` | AI대학 | Department of Electrical Engineering and Computer Science | 전기전자컴퓨터공학과 |
+| `AI` | AI대학 | Department of AI | AI학과 |
+| `AX` | AI대학 | Department of AX | AX학과 |
+| `SE` | AI대학 | Department of Semiconductor Engineering | 반도체공학과 |
+| `PH` | 자연과학대학 | Department of Physics and Photon Science | 물리·광과학과 |
+| `CH` | 자연과학대학 | Department of Chemistry | 화학과 |
+| `MA` | 자연과학대학 | Department of Mathematical Sciences | 수리과학과 |
+| `MS` | 공과대학 | Department of Materials Science and Engineering | 신소재공학과 |
+| `ME` | 공과대학 | Department of Mechanical and Robotics Engineering | 기계로봇공학과 |
+| `EN` | 공과대학 | Department of Environment and Energy Engineering | 환경·에너지공학과 |
+| `LS` | 생명·의과학융합대학 | Department of Life Sciences | 생명과학과 |
+| `MD` | 생명·의과학융합대학 | Department of Biomedical Science and Engineering | 의생명공학과 |
+| `NP` | 생명·의과학융합대학 | Department of Integrative Neuroscience & Physiology | 융합신경생리학과 |
 
-일부 학과명은 현행 명칭과 다를 수 있음. 컴파일 후 표지를 확인하고, 필요하면 `gist.cls`의 `\ifx\@dept\XX ... \fi` 블록을 수정할 것.
+- 예전 조직 코드(`IC`, `IM`, `NA`, `ET`, `CT`, `RT`)는 기존 논문을 다시 컴파일할 때만 쓰도록 `gist.cls`에 남겨 둠.
+- 대학원(AI정책전략대학원, 기술경영전문대학원 등)이나 목록에 없는 학과는 `gist.cls`의 학과 블록 하나를 복사해 코드·학과명·단과대학명(`\@ecollege`, `\@kcollege`)을 바꾸면 됨. 단과대학에 속하지 않으면 `\@ecollege`를 비워 두면 해당 줄이 생략됨.
 
 </details>
 
@@ -121,7 +128,7 @@ pdflatex thesis
 
 - **여백**: `thesis.tex`의 `\usepackage[margin=1in]{geometry}`가 `gist.cls`의 여백 설정(본문 폭 155 mm)을 덮어씀. 이 상태로 인준받은 선례는 있으나, 학교 최신 지침과 대조해 유지 여부를 결정할 것.
 - **국문요약**: 영문 논문에 국문요약이 필요한지 학과·학교 지침을 확인할 것. 필요하면 `thesis.tex`의 `kabstract` 블록 주석을 해제함.
-- **학과명**: 표지와 초록 머리말에 찍힌 학과명이 현행 명칭과 맞는지 확인할 것.
+- **단과대학·학과명**: 표지와 초록 머리말에 찍힌 단과대학명과 학과명이 제출 시점의 공식 명칭과 맞는지 확인할 것.
 - **쪽수 라벨**: 초록 머리말의 전체 쪽수(`XXp`)는 참고문헌 바로 뒤의 `\label{paperlastpagelabel}`로 계산됨. 삭제하지 말 것.
 - **국문 논문**: `gist.cls`에 `korean` 옵션이 있으나 테스트되지 않은 기능임. 사용 시 표지·인준지를 반드시 확인할 것.
 
@@ -132,7 +139,7 @@ pdflatex thesis
 | 이성준 | 공과대학 환경에너지공학과, 2026년 2월 졸업 | 2026년 11월 10일 | seongjunlee@gm.gist.ac.kr |
 | 윤광진 | 전기전자컴퓨터공학부, 2019년 8월 졸업 | 2020년 8월 15일 | yoon28@gist.ac.kr |
 
-- 이 저장소는 **윤광진(Kwangjin Yoon)** 님이 Overleaf 갤러리에 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)으로 공개한 **[GIST dissertation template](https://www.overleaf.com/latex/templates/gist-dissertation-template/qkrrkcshdthf)** 을 수정한 것임. 바뀐 내용은 위의 [이번 버전에서 바뀐 점](#이번-버전에서-바뀐-점-2026년-11월-10일)에 정리함.
+- 이 저장소는 **윤광진(Kwangjin Yoon)** 님이 Overleaf 갤러리에 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)으로 공개한 **[GIST dissertation template](https://www.overleaf.com/latex/templates/gist-dissertation-template/qkrrkcshdthf)** 을 수정한 것임. 바뀐 내용은 위의 [바뀐 점](#바뀐-점)에 정리함.
 - 윤광진 님 버전은 GIST EECS MLV 소속으로 졸업하신 유정민 선배님의 템플릿을 바탕으로 함.
 - `gist.cls`는 `kaist.cls`에서 출발해 S.H. Lee, Y. Chung 님이 1996~2000년에 관리한 클래스이며, 수정 이력은 파일 머리 주석에 그대로 남겨 둠.
 
